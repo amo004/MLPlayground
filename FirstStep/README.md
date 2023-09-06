@@ -46,3 +46,6 @@ Using pip you can install these packages with the command
 `pip install $PACKAGE_NAME`.
 
 After you have installed these packages, try to run the script `hello_ml.py` that I've included in this repository. If you see the message `Hey, it worked!`, then your installs are working correctly
+
+In case you have dependency issues with numpy, i'm using `numpy 1.22`
+

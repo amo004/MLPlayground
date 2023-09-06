@@ -41,7 +41,7 @@ I'm using Python 3.8. You can check your python version with the command
 I manage my python packages using a tool called `pip`. If you would like to use this tool but don't already use it, you can follow [these](https://docs.brew.sh/Homebrew-and-Python) instrucitons to install it. 
 
 After you have this worked out, it is very straightforward to install the packages we'll need. 
-You should install `numpy`, `matplotlib`, and `tensorflow`. The last of these we won't actually use for a while. 
+You should install `numpy`, `matplotlib`, `pandas`, and `tensorflow`. The last of these we won't actually use for a while. 
 Using pip you can install these packages with the command 
 `pip install $PACKAGE_NAME`.
 

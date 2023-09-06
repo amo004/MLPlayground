@@ -25,8 +25,9 @@ You can do this in the command line with the bash command
 
 If you want to save this directory, the way to do this is to tell `git` that you want it to track `MyFirstDirectory`, and you want to save that instruction. 
 You can accomplish this by using the commands
-`git add MyFirstDirectory
-git commit -m "I made my first directory"`
+`git add MyFirstDirectory`
+and then 
+`git commit -m "I made my first directory"`
 
 The string after the flag above is called a **commit message** and it serves to track your intentions with a commit. This comment is saved for future reference, so that you can remember the purposes of various commits. 
 

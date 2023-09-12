@@ -46,6 +46,8 @@ def preprocess(filename: str,Npoints=None):
     return labels, pixels
 
 def least_squares(targets, inputs):
+    # it generally makes sense to define something like this as a method
+    # for a class, but we're doing everything functional here so i wont do that
     beta = targets @ inputs @ np.linalg.pinv(np.transpose(inputs) @ inputs)  
     return beta 
 
@@ -54,6 +56,47 @@ def compare_ls(targets, inputs):
     beta_true = np.linalg.lstsq(inputs, targets,rcond = None)[0]
     return (beta_h - beta_true) @ (beta_h - beta_true)
 
+def predict(features, beta) -> int:
+    """
+        It's pretty standard to refer to the data of a single point
+        as ``features'' for the record. One you have trained your 
+        beta vector, you have a very straightforward way to cheaply
+        make predictions. The expensive thing is coming up with the
+        right beta in the first place. After you come up with a good 
+        beta, you can just save it and use it when you please
+    """
+    # this is a very cheap calculation
+    return 0 if features @ beta < 0.5 else 1
+
+def test_predictions(targets, inputs, beta):
+    """
+    I wrote this in basically the dumbest possible way for the sake of readability. 
+    A more streamlined way to do this is, e.g.
+
+    predictions = inputs @ beta 
+    return (targets - predictions) @ (targets - predictions)
+
+    which does exactly the same thing, but may be harder to understand. 
+    """
+    incorrect = 0
+    for data_point in range(inputs.shape[0]):
+        # ask least squares to guess if a number is a zero or something else
+        predicted_outcome = predict(inputs[data_point], beta)
+        actual_outcome = targets[data_point]
+
+        # if the actual answer and the predicted answer arent the same, lsr made a mistake
+        if predicted_outcome - actual_outcome != 0: 
+            incorrect += 1
+    return incorrect
+
+
+
+
 if __name__ == '__main__':
     labels, pixels = preprocess('../data/train.csv')
-    print(compare_ls(labels,pixels))
+    print(f'The 2--norm difference between homebrewed least squares and store--bought is {compare_ls(labels,pixels)}')
+    beta = least_squares(labels, pixels)
+    num_mistakes = test_predictions(labels,pixels,beta)
+    print(f'number of mistakes was {num_mistakes}')
+
+    

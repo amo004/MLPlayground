@@ -15,16 +15,14 @@ This repository will be organized according to the following principles
 Our first goal will be to write several solutions to the digit classification problem. 
 We'll break our efforts into the following steps 
 1. Set up a development environment
-2. Get comfortable with tools like `numpy`, `matplotlib`, and `tensorflow`
-3. Learn some data visualization techniques
-4. Implement Linear Least Squares regression
-5. Solve some classification problems using Linear Least Squares regression
-6. Impliment nonlinear least squares regression
-7. Solve some classification problems using nonlinear least squares regression
-8. Learn to diagnose under/over fitting
-9. Implement some minimization techniques
-10. Test our minimization techniques
-11. Implement a Neural Network
+2. Implement Linear Least Squares regression
+3. Solve some classification problems using Linear Least Squares regression
+4. Impliment nonlinear least squares regression
+5. Solve some classification problems using nonlinear least squares regression
+6. Learn to diagnose under/over fitting
+7. Implement some minimization techniques
+8. Test our minimization techniques
+9. Implement a Neural Network
     
 
 At each step, we will apply our focus to the digit recognition data set provided in ~/data/.  

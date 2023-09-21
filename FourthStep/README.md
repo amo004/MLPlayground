@@ -27,5 +27,5 @@ All that you  need to do is import data from the included `.csv` file and split 
 ## Underfitting 
 
 For now, it's fine to use the least squares implementation from whatever library you like. I'll use `numpy.linalg.lstsq()` for mine. Partition your data into training and testing, and then use least squares regression on the training data. Plot the least squares fit on top of the training data. 
-You should get something like this: 
+You should get something like this: ![alt text](lls.png "Title")
 

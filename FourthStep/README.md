@@ -33,3 +33,9 @@ You can tell from looking at the plot that there are clearly features of the dat
 
 One way to solve this problem is to use a more sophistocated model. We can turn least squares into something more powerful by ''adding'' data. From our previous work, we know that least squares fits a vector $\beta$ so that the $y \approx \beta_1 x_1 + \beta_2 x_d \dots + \beta_0$. Linear funcitons like this are only so general; what we need is to modify the least squares algorithm so that more phenomena can be easily approximated. Recall that polynomials are universal approximants, so that any function $f(x_1) = a_0 + x_1 a_1 + x_1^2 a_2 + \dots $. Evidently, we just need higher order terms. Thankfully, it's straight forward to add these to the model. 
 
+In the data that I have included, there is only a single column of inputs, namely, x value, but apparently the relationship between input and output depends on the input in a nonlinear way. 
+In the last step, we appended ones to the data in order to manipulate the least squares algorithm into a more useful form. Note that for any number $x$, $x^0 = 1$. So $$\hat{x} = \langle x, x^0 = 1\rangle$$ is our ''preprocessed data''. To solve this underfitting, we will just add more powers of $x$ into our preprocessed data so that $$\hat{x} = \langle x^n, x^{n-1}, \dots ,x, x^0\rangle$$. 
+
+Then, the least squares algorithm will give us a $beta$ vector such that 
+$y \approx \beta_n x^n + \beta_{n-1} x_{n-1} + \dots + \beta_1 x_1 + \beta_0$ which is more powerful than what we've previously done.  
+

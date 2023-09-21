@@ -37,5 +37,5 @@ In the data that I have included, there is only a single column of inputs, namel
 In the last step, we appended ones to the data in order to manipulate the least squares algorithm into a more useful form. Note that for any number $x$, $x^0 = 1$. So $$\hat{x} = \langle x, x^0 = 1\rangle$$ is our ''preprocessed data''. To solve this underfitting, we will just add more powers of $x$ into our preprocessed data so that $$\hat{x} = \langle x^n, x^{n-1}, \dots ,x, x^0\rangle$$. 
 
 Then, the least squares algorithm will give us a $beta$ vector such that 
-$y \approx \beta_n x^n + \beta_{n-1} x_{n-1} + \dots + \beta_1 x_1 + \beta_0$ which is more powerful than what we've previously done.  
+$y \approx \beta_n x^n + \beta_{n-1} x_{n-1} + \dots + \beta_1 x_1 + \beta_0$ which is more powerful than what we've previously done.  ![alt text](nlls.png "Title")
 

@@ -32,6 +32,14 @@ def appendOnes(arr):
     ones = np.ones(arr.shape[0])
     return np.transpose(np.array([arr,ones]))
 
+def preprocess(arr, nvals):
+    output = [arr, arr**0]
+    if nvals == []:
+        return np.transpose(np.array(output))
+    for n in nvals:
+        output.append(arr**n)
+    return np.transpose(np.array(output))
+
 
 
 def main(fname):
@@ -50,8 +58,19 @@ def main(fname):
     plt.savefig('lls.png')
     plt.close()
 
-
-
+    nvals = [2,3,4,5]
+    # xPost = preprocess(xT,nvals)
+    # betap = np.linalg.lstsq(xPost,yT)[0]
+    # print(betap)
+    plt.plot(xT,yT,label='data',linewidth=0,marker='x')
+    a = np.argsort(xT)
+    for n in range(5):
+        xPost = preprocess(xT,nvals[0:n])
+        betap = np.linalg.lstsq(xPost,yT)[0]
+        plt.plot(xT[a], (xPost @ betap)[a],markersize=0,label = f'nmax = {n+1}')
+    plt.legend()
+    plt.savefig('nlls.png')
+    plt.close()
 
 if __name__ == "__main__":
     main('cooked.csv')

@@ -6,11 +6,11 @@ I mentioned in another module that it's common practice to split your data into 
 we will actually do this, with some data that I have cooked up for visualizability and which can be found in `cooked.csv`.
 
 The setup is basically as follows: there is some relationship between input and output, and we want to ascertain that relationship approximately. 
-In reality, I have taken 300 random numbers uniformally sampled from the interval $$ [0,2 \pi]$$ and I constructed the ''output'' field by using code along the lines of 
-``
+In reality, I have taken 300 random numbers uniformally sampled from the interval $$[0,2 \pi]$$ and I constructed the ''output'' field by using code along the lines of 
+```
 input = np.random.rand(300)
 output = np.sin(300) + np.random.rand(300) * 0.1
-``
+```
 and we are trying to see how close we can get to this relation. 
 I have added some noise to make things a little more interesting. 
 
